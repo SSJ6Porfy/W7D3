@@ -4,13 +4,14 @@ import Root from './components/root';
 import configureStore from './store/store';
 
 import { fetchAllPokemon } from './util/api_util';
-import { receiveAllPokemon } from './actions/pokemon_actions';
-import { requestAllPokemon } from './middleware/thunk';
+import { receiveAllPokemon, requestAllPokemon } from './actions/pokemon_actions';
 import selectAllPokemon from './reducers/selectors';
 
 document.addEventListener("DOMContentLoaded", ()=>{
   const store = configureStore();
-  ReactDom.render(<Root store={store}/> , document.getElementById("root"));
+  const root = document.getElementById("root");
+
+  ReactDom.render(<Root store={store}/> , root);
 
   window.selectAllPokemon = selectAllPokemon;
   window.requestAllPokemon = requestAllPokemon;
