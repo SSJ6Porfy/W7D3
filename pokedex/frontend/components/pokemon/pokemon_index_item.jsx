@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const PokemonIndexItem = function(props) {
   let pokemon = props.pokemon;
-
+  // debugger;
   return (
     <li>
       <Link to={"/pokemon/" + pokemon.id}>
