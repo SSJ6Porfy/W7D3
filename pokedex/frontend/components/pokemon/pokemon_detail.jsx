@@ -1,7 +1,7 @@
 import React from 'react';
-
 import { values } from 'lodash';
-
+import ItemDetailContainer from '../items/item_detail_container';
+import Route from 'react-redux-dom';
 class PokemonDetail extends React.Component {
   constructor(props) {
     super(props);
@@ -24,7 +24,7 @@ class PokemonDetail extends React.Component {
     if (this.props.poke.items !== undefined) {
       items = this.props.poke.items.map((item, idx) => {
         return (
-          <li>{item.name}</li>
+          {item.name}
         );
       });
     }

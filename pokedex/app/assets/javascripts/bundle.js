@@ -7186,14 +7186,17 @@ var requestPokemon = exports.requestPokemon = function requestPokemon(pokemonId)
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.selectPokemonItem = exports.selectAllPokemon = undefined;
 
 var _lodash = __webpack_require__(114);
 
-var selectAllPokemon = function selectAllPokemon(state) {
+var selectAllPokemon = exports.selectAllPokemon = function selectAllPokemon(state) {
   return (0, _lodash.values)(state.entities.pokemon);
 };
 
-exports.default = selectAllPokemon;
+var selectPokemonItem = exports.selectPokemonItem = function selectPokemonItem(state, itemId) {
+  return state.entities.items[itemId];
+};
 
 /***/ }),
 /* 63 */
@@ -43335,14 +43338,12 @@ var _pokemon_index2 = _interopRequireDefault(_pokemon_index);
 
 var _selectors = __webpack_require__(62);
 
-var _selectors2 = _interopRequireDefault(_selectors);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
     // piece of state that container subscribes to
-    pokemon: (0, _selectors2.default)(state)
+    pokemon: (0, _selectors.selectAllPokemon)(state)
   };
 };
 
@@ -46690,129 +46691,10 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 /***/ }),
 /* 285 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(6);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _lodash = __webpack_require__(114);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var PokemonDetail = function (_React$Component) {
-  _inherits(PokemonDetail, _React$Component);
-
-  function PokemonDetail(props) {
-    _classCallCheck(this, PokemonDetail);
-
-    return _possibleConstructorReturn(this, (PokemonDetail.__proto__ || Object.getPrototypeOf(PokemonDetail)).call(this, props));
-  }
-
-  _createClass(PokemonDetail, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.props.requestPokemon(this.props.match.params.id);
-    }
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(newProps) {
-      if (this.props.match.params.id !== newProps.match.params.id) {
-        this.props.requestPokemon(newProps.match.params.id);
-      }
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      console.log(this.props.poke.items);
-      var items = "";
-      if (this.props.poke.items !== undefined) {
-        items = this.props.poke.items.map(function (item, idx) {
-          return _react2.default.createElement(
-            'li',
-            null,
-            item.name
-          );
-        });
-      }
-
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'figure',
-          null,
-          _react2.default.createElement('img', { src: this.props.poke.image_url })
-        ),
-        _react2.default.createElement(
-          'ul',
-          null,
-          _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              'h3',
-              null,
-              this.props.poke.name
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            'Type: ',
-            this.props.poke.poke_type
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            'Attack: ',
-            this.props.poke.attack
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            'Defense: ',
-            this.props.poke.defense
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            'Moves: ',
-            this.props.poke.moves
-          )
-        ),
-        _react2.default.createElement(
-          'section',
-          null,
-          _react2.default.createElement(
-            'ul',
-            null,
-            items
-          )
-        )
-      );
-    }
-  }]);
-
-  return PokemonDetail;
-}(_react2.default.Component);
-
-exports.default = PokemonDetail;
+throw new Error("Module build failed: SyntaxError: Unexpected token, expected , (27:15)\n\n\u001b[0m \u001b[90m 25 | \u001b[39m      items \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mprops\u001b[33m.\u001b[39mpoke\u001b[33m.\u001b[39mitems\u001b[33m.\u001b[39mmap((item\u001b[33m,\u001b[39m idx) \u001b[33m=>\u001b[39m {\n \u001b[90m 26 | \u001b[39m        \u001b[36mreturn\u001b[39m (\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 27 | \u001b[39m          {item\u001b[33m.\u001b[39mname}\n \u001b[90m    | \u001b[39m               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 28 | \u001b[39m        )\u001b[33m;\u001b[39m\n \u001b[90m 29 | \u001b[39m      })\u001b[33m;\u001b[39m\n \u001b[90m 30 | \u001b[39m    }\u001b[0m\n");
 
 /***/ })
 /******/ ]);
